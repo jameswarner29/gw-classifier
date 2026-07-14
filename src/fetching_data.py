@@ -42,27 +42,27 @@ for event in events:
     
 #---------------------------------------------picking negative class from O3b (1256655618 to 1269363618)-----------------------------------------------
 
-#rng = np.random.default_rng(42)
-#o3b_start = 1256655618 
-#o3b_end = 1269363618
+rng = np.random.default_rng(42)
+o3b_start = 1256655618 
+o3b_end = 1269363618
 
-#event_times = []
-#for event in events:
-#    gps = event_gps(event)
-#    if 1256655618 <= gps <= 1269363618:
-#        event_times.append(gps)
+event_times = []
+for event in events:
+    gps = event_gps(event)
+    if 1256655618 <= gps <= 1269363618:
+        event_times.append(gps)
         
-#samples = []
-#while len(samples) < 175:
-#    sample = rng.uniform(o3b_start, o3b_end)
-#    if all(abs(sample - o3b_event) >= 100 for o3b_event in event_times):
-#        samples.append(sample)
+samples = []
+while len(samples) < 175:
+    sample = rng.uniform(o3b_start, o3b_end)
+    if all(abs(sample - o3b_event) >= 100 for o3b_event in event_times):
+        samples.append(sample)
   
-#print(samples)
+print(samples)
 
-#noise_data = {}
+noise_data = {}
 
-#for i, sample in enumerate(samples):
-#    quiet_data = TimeSeries.fetch_open_data('H1', gps - 16, gps + 16, cache = True)
-#    noise_data[i] = quiet_data
- #   print(i + 1, quiet_data.shape)
+for i, sample in enumerate(samples):
+    quiet_data = TimeSeries.fetch_open_data('H1', gps - 16, gps + 16, cache = True)
+    noise_data[i] = quiet_data
+    print(i + 1, quiet_data.shape)
