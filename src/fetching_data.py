@@ -7,8 +7,7 @@ Created on Mon Jun  8 16:58:21 2026
 """
 
 from gwosc.datasets import event_gps, find_datasets
-from gwpy.timeseries import TimeSeries
-import random 
+from gwpy.timeseries import TimeSeries 
 import numpy as np
 
 # Fetch strain data around a known event
@@ -66,3 +65,4 @@ for i, sample in enumerate(samples):
     quiet_data = TimeSeries.fetch_open_data('H1', gps - 16, gps + 16, cache = True)
     noise_data[i] = quiet_data
     print(i + 1, quiet_data.shape)
+    
